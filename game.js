@@ -8,16 +8,16 @@ function startGame() {
         let answerNumber = prompt(`Enter your answer please`);
         let comparingResult = getCowsAndBullsCount();
 
-        if (result.bullsCount === 4) {
+        if (comparingResult.bullsCount === 4) {
             alert(`You won, the correct number is ${secretNumber}`);
             break;
-        } else { `Your answer = ${answerNumber}, bulls: ${result.bullsCount}, cows: ${result.cowsCount}` };
+        } else { `Your answer = ${answerNumber}, bulls: ${comparingResult.bullsCount}, cows: ${comparingResult.cowsCount}` };
     }
 }
 
 /**
- Функция, которая генерирует случайные 4 цифры в виде массива
- * @returns массив из 4х случайных неповторяющихся цифр 
+ * Функция, которая генерирует случайные 4 цифры в 
+ * @returns 
  */
 function getSecretNumber() {
     const min = 0;
