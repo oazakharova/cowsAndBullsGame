@@ -16,6 +16,35 @@ function startGame() {
 }
 
 /**
+ * Функция, возвращающая количество коров и быков
+ * 
+ */
+function getCowsAndBullsCount() {
+    let cowsCount = getCowsCount(riddle, answer);
+    let bullsCount = getBullsCount(riddle, answer);
+}
+
+function getCowsCount(riddle, answer) {
+    let cowsCount = 0;
+    for (let i = 0; i < riddle.length; i++) {
+        for (let j = 0; j < answer.length; j++) {
+            if (riddle[i] === answer[j] && i !== j) {
+                cowsCount++;
+            }
+        }
+    }
+}
+
+function getBullsCount(riddle, answer) {
+    let bullsCount = 0;
+    for (let i = 0; i < riddle.length; i++) {
+        if (riddle[i] === answer[i]) {
+            bullsCount++;
+        }
+    }
+}
+
+/**
  * Функция, которая генерирует случайные 4 цифры в виде массива
  * @returns массив из 4х случайных неповторяющихся цифр
  */
