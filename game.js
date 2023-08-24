@@ -14,3 +14,36 @@ function startGame() {
         } else { `Your answer = ${answerNumber}, bulls: ${result.bullsCount}, cows: ${result.cowsCount}` };
     }
 }
+
+/**
+ * Функция, которая генерирует случайные 4 цифры в 
+ * @returns 
+ */
+function getSecretNumber() {
+    const min = 0;
+    const max = 9;
+    let secretNumber = [];
+    let count = 0;
+    for (let i = 0; i < 5; i++) {
+        let generatedNumber = getRandomInRange(min, max);
+        if (!generatedNumber in secretNumber) {
+            secretNumber = generatedNumber.push(secretNumber)
+            count++;
+        } else {
+            i--;
+        }
+        if (count === 4) {
+            return secretNumber;
+        }
+    }
+}
+
+/**
+ * Функция для получения рандомного целого числа в заданном диапазоне включая обе границы
+ * @param {number} min - минимальная граница для получения рандомного числа
+ * @param {number} max - максимальная граница для получения рандомного числа
+ * @returns рандомное целое число в заданном диапазоне включая обе границы
+ */
+function getRandomInRange(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
